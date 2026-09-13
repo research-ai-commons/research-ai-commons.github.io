@@ -6,6 +6,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <div class="eyebrow">Research AI Café #001 | JP</div>
 <h1 style="font-size:clamp(2.5rem,6vw,4.7rem)">研究にAI、<br/>みんなどう使ってる？</h1>
 <p class="lead">実験系研究者のリアルなAI活用を持ち寄る座談会。</p>
+<a class="event-poster" href="/images/research-ai-cafe-001-jp-poster.webp" aria-label="Research AI Café #001のポスターを拡大して開く">
+  <img src="/images/research-ai-cafe-001-jp-poster.webp" alt="Research AI Café #001 JP。テーマは『研究にAI、みんなどう使ってる？』。日時・場所・参加方法は未定。" width="900" height="1274" />
+</a>
 <div class="card" style="margin:28px 0"><strong>日時</strong><p>19:00–20:30（自由交流 ～21:00）</p><strong>会場</strong><p>北海道大学内（予定）</p><strong>対象</strong><p>実験系の大学院生・若手研究者を中心に、興味のある研究者</p><strong>参加費</strong><p>無料</p></div>
 <h2>この回で話したいこと</h2>
 <ul><li>研究のどこでAIを使っている？</li><li>本当に便利だった使い方は？</li><li>危ない・信用できないと感じたことは？</li><li>もっと使う上で何が障壁になっている？</li><li>次に誰に何を聞きたい？</li></ul>
@@ -14,3 +17,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <h2>参加登録</h2><p>登録フォームは準備中です。</p>
 </div></section>
 </BaseLayout>
+
+<style>
+.event-poster{display:block;max-width:680px;margin:40px 0;background:var(--surface);border:1px solid var(--line);padding:10px;box-shadow:var(--shadow)}
+.event-poster img{display:block;width:100%;height:auto}
+</style>
