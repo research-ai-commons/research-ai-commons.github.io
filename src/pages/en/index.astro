@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout lang="en" title={`${site.name} | English`}>
+<section class="hero"><div class="container">
+<div class="eyebrow">Researcher-led community</div><div class="tagline">{site.tagline}</div>
+<h1>How is AI<br/>actually changing<br/>your research?</h1>
+<p class="lead">Research AI Commons is a researcher-led community for sharing how AI is actually used in research — what works, what fails, what feels risky, and how workflows differ across labs and disciplines.</p>
+<div class="actions"><a class="button" href="/cafe/">See Café events</a><a class="button secondary" href="/about/">About the community</a></div>
+</div></section>
+</BaseLayout>

@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { events } from '../../data/events';
+const cafes = events.filter((e) => e.series === 'Café');
+---
+<BaseLayout title="Café | Research AI Commons">
+<section class="section"><div class="container">
+<div class="eyebrow">Research AI Café</div><h1 style="font-size:clamp(2.5rem,6vw,4.7rem)">研究者どうしで、<br/>まず話してみる。</h1>
+<p class="lead">Caféは、小規模でラフな継続型の交流会です。参加に専門知識や事前準備は必要ありません。</p>
+<div style="height:32px"></div>
+{cafes.map((event) => <article class="card event"><div><div class="event-id">Café {event.id}</div><span class="pill">{event.language}</span></div><div><h3>{event.title}</h3><p>{event.summary}</p><div class="event-meta">{event.date} / {event.time}</div></div><a class="button secondary" href={event.href}>詳細</a></article>)}
+</div></section>
+</BaseLayout>

@@ -1,0 +1,13 @@
+---
+import { site } from '../data/site';
+---
+<footer>
+  <div class="container foot">
+    <div class="footer-brand"><strong>{site.name}</strong><div>{site.tagline}</div></div>
+    <div class="footer-links"><a href="/about/">About</a><a href="/join/">Join</a><a href={site.github}>GitHub</a></div>
+    <div class="small">Researcher-led · Tool-neutral · Community-driven</div>
+  </div>
+</footer>
+<style>
+footer{border-top:1px solid var(--line);padding:42px 0;color:var(--muted);background:var(--surface)}.foot{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}.footer-brand strong{color:var(--ink)}.footer-brand div{margin-top:3px}.footer-links{display:flex;gap:18px;font-weight:700;font-size:.9rem}.footer-links a:hover{color:var(--primary)}.small{grid-column:1/-1;padding-top:22px;border-top:1px solid var(--line);font:600 .76rem var(--mono);text-transform:uppercase;letter-spacing:.06em}@media(max-width:700px){.foot{grid-template-columns:1fr}.small{grid-column:1}.footer-links{flex-wrap:wrap}}
+</style>
