@@ -4,6 +4,13 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { site } from '../data/site';
 const { title = site.name, description = site.description, lang = 'ja' } = Astro.props;
+const pathname = Astro.url.pathname;
+const isEnglish = lang === 'en' || pathname.startsWith('/en/');
+const alternatePath = isEnglish
+  ? (pathname === '/en/' ? '/' : pathname.replace(/^\/en/, ''))
+  : `/en${pathname}`;
+const canonicalUrl = Astro.site ? new URL(pathname, Astro.site) : undefined;
+const alternateUrl = Astro.site ? new URL(alternatePath, Astro.site) : undefined;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -12,12 +19,15 @@ const { title = site.name, description = site.description, lang = 'ja' } = Astro
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#102a31" />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    {alternateUrl && <link rel="alternate" hreflang={isEnglish ? 'ja' : 'en'} href={alternateUrl} />}
+    {Astro.site && <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site)} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
   <body>
-    <Header />
+    <Header lang={isEnglish ? 'en' : 'ja'} pathname={pathname} />
     <main><slot /></main>
-    <Footer />
+    <Footer lang={isEnglish ? 'en' : 'ja'} />
   </body>
 </html>

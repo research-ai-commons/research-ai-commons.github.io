@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
 import { events } from '../data/events';
-const upcoming = events[0];
+const upcoming = events.filter((event) => event.series === 'Café');
 ---
 <BaseLayout title={`${site.name} — ${site.tagline}`}>
   <section class="hero">
@@ -83,11 +83,13 @@ const upcoming = events[0];
     <div class="container">
       <div class="eyebrow">Next event</div>
       <h2>次のCafé</h2>
-      <article class="card event">
-        <div><div class="event-id">Research AI {upcoming.series} {upcoming.id}</div><div><span class="pill">{upcoming.language}</span><span class="pill status">Planning</span></div></div>
-        <div><h3>{upcoming.title}</h3><p>{upcoming.summary}</p><div class="event-meta">{upcoming.date} / {upcoming.time}<br/>{upcoming.venue}</div></div>
-        <a class="button secondary" href={upcoming.href}>詳細 <span aria-hidden="true">→</span></a>
-      </article>
+      <div class="event-list">
+        {upcoming.map((event) => <article class="card event">
+          <div><div class="event-id">Research AI {event.series} {event.id}</div><div><span class="pill">{event.language}</span><span class="pill status">Planning</span></div></div>
+          <div><h3>{event.title}</h3><p>{event.summary}</p><div class="event-meta">{event.date} / {event.time}<br/>{event.venue}</div></div>
+          <a class="button secondary" href={event.href}>詳細 <span aria-hidden="true">→</span></a>
+        </article>)}
+      </div>
     </div>
   </section>
 
@@ -111,6 +113,7 @@ const upcoming = events[0];
 .intro-section{background:var(--surface)}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}.intro-copy{padding-top:26px}.text-link{display:inline-block;margin-top:12px;color:var(--primary);font-weight:800;border-bottom:1px solid currentColor}
 .card{position:relative;overflow:hidden}.card-index{position:absolute;right:20px;top:15px;font:700 2.6rem var(--mono);color:var(--accent)}
 .loop-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px 70px;align-items:start}.light{color:var(--mint)}.loop{margin:0;padding:0;list-style:none;border-top:1px solid rgba(255,255,255,.2)}.loop li{display:grid;grid-template-columns:48px 1fr;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:1.15rem;font-weight:750}.loop li span{font:600 .72rem var(--mono);color:var(--mint)}.loop-copy{grid-column:2}.status{background:var(--accent);color:var(--primary-dark);border-color:transparent}
+.event-list{display:grid;gap:16px}
 @media(max-width:900px){.hero-grid,.intro-grid,.loop-grid{grid-template-columns:1fr}.field-note{max-width:600px;transform:none}.scope-line{margin-top:50px}.loop-copy{grid-column:1}.intro-grid{gap:10px}}
 @media(max-width:560px){.field-note{padding:24px;border-radius:4px 26px 4px 4px}.scope-line span{min-width:50%;border-bottom:1px solid var(--line)}.scope-line span:nth-child(2n){border-right:0}}
 </style>

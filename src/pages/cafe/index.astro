@@ -10,15 +10,26 @@ const cafes = events.filter((e) => e.series === 'Café');
 <div style="height:32px"></div>
 {cafes.map((event) => <article class="card event"><div><div class="event-id">Café {event.id}</div><span class="pill">{event.language}</span></div><div><h3>{event.title}</h3><p>{event.summary}</p><div class="event-meta">{event.date} / {event.time}</div></div><a class="button secondary" href={event.href}>詳細</a></article>)}
 
-<section class="poster-section" aria-labelledby="cafe-poster-heading">
+<section class="poster-section" aria-labelledby="cafe-poster-001-heading">
   <div class="poster-copy">
     <div class="eyebrow">Café #001 Poster</div>
-    <h2 id="cafe-poster-heading">第1回Caféのポスター</h2>
+    <h2 id="cafe-poster-001-heading">Café #001のポスター</h2>
     <p>「研究にAI、みんなどう使ってる？」をテーマに、実験系研究者のリアルな使い方や失敗例、気になっていることを持ち寄ります。</p>
     <a class="button secondary" href="/events/cafe-001-jp/">イベント詳細を見る</a>
   </div>
   <a class="poster-link" href="/images/research-ai-cafe-001-jp-poster.webp" aria-label="Research AI Café #001のポスターを拡大して開く">
     <img src="/images/research-ai-cafe-001-jp-poster.webp" alt="Research AI Café #001 JP。テーマは『研究にAI、みんなどう使ってる？』。日時・場所・参加方法は未定。" width="900" height="1274" loading="lazy" />
+  </a>
+</section>
+<section class="poster-section" aria-labelledby="cafe-poster-002-heading">
+  <div class="poster-copy">
+    <div class="eyebrow">Café #002 | EN Poster</div>
+    <h2 id="cafe-poster-002-heading">英語回のポスター</h2>
+    <p>同じテーマを英語で話すCafé #002です。研究分野や文化の違いも含め、実際のAI活用を共有します。</p>
+    <a class="button secondary" href="/events/cafe-002-en/">イベント詳細を見る</a>
+  </div>
+  <a class="poster-link" href="/images/research-ai-cafe-002-en-poster.webp" aria-label="Research AI Café #002の英語ポスターを拡大して開く">
+    <img src="/images/research-ai-cafe-002-en-poster.webp" alt="Research AI Café #002 EN。テーマは『How are you using AI in your research?』。日時・場所・参加方法は未定。" width="900" height="1274" loading="lazy" />
   </a>
 </section>
 </div></section>

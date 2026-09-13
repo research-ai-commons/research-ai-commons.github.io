@@ -1,27 +1,36 @@
 ---
 import { site } from '../data/site';
+const { lang = 'ja', pathname = '/' } = Astro.props;
+const isEnglish = lang === 'en';
+const prefix = isEnglish ? '/en' : '';
+const homeHref = isEnglish ? '/en/' : '/';
+const languageHref = isEnglish
+  ? (pathname === '/en/' ? '/' : pathname.replace(/^\/en/, ''))
+  : `/en${pathname}`;
+const languageLabel = isEnglish ? 'JP' : 'EN';
 ---
 <header class="header">
   <div class="container inner">
-    <a class="brand" href="/" aria-label={`${site.name} home`}>
+    <a class="brand" href={homeHref} aria-label={`${site.name} home`}>
       <span class="brand-mark" aria-hidden="true">RA</span>
       <span>{site.name}</span>
     </a>
     <nav class="desktop-nav" aria-label="Main navigation">
-      <a href="/about/">About</a>
-      <a href="/cafe/">Café</a>
-      <a href="/forum/">Forum</a>
-      <a href="/resources/">Resources</a>
-      <a href="/staff/">Staff</a>
-      <a href="/join/">Join</a>
-      <a class="language" href="/en/">EN</a>
+      <a href={`${prefix}/about/`}>About</a>
+      <a href={`${prefix}/cafe/`}>Café</a>
+      <a href={`${prefix}/forum/`}>Forum</a>
+      <a href={`${prefix}/resources/`}>Resources</a>
+      <a href={`${prefix}/staff/`}>Staff</a>
+      <a href={`${prefix}/join/`}>Join</a>
+      <a class="language" href={languageHref} lang={isEnglish ? 'ja' : 'en'}>{languageLabel}</a>
     </nav>
     <details class="mobile-menu">
-      <summary aria-label="メニューを開く">Menu</summary>
+      <summary aria-label={isEnglish ? 'Open menu' : 'メニューを開く'}>Menu</summary>
       <nav aria-label="Mobile navigation">
-        <a href="/about/">About</a><a href="/cafe/">Café</a>
-        <a href="/forum/">Forum</a><a href="/resources/">Resources</a>
-        <a href="/staff/">Staff</a><a href="/join/">Join</a><a href="/en/">English</a>
+        <a href={`${prefix}/about/`}>About</a><a href={`${prefix}/cafe/`}>Café</a>
+        <a href={`${prefix}/forum/`}>Forum</a><a href={`${prefix}/resources/`}>Resources</a>
+        <a href={`${prefix}/staff/`}>Staff</a><a href={`${prefix}/join/`}>Join</a>
+        <a href={languageHref} lang={isEnglish ? 'ja' : 'en'}>{isEnglish ? '日本語' : 'English'}</a>
       </nav>
     </details>
   </div>
