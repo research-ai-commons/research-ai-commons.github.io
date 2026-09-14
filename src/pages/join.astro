@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
 ---
 <BaseLayout title="Join | Research AI Commons">
 <section class="section"><div class="container prose">
 <div class="eyebrow">Join</div><h1 style="font-size:clamp(2.5rem,6vw,4.7rem)">詳しくなくても、<br/>参加できます。</h1>
 <p class="lead">AIを毎日使う人も、英語校正くらいにしか使わない人も、まだ研究では使っていない人も歓迎です。</p>
-<h2>参加方法</h2><p>初期段階では、Caféの参加フォームと告知用メーリングリスト／SNSへのリンクをここに設置します。</p>
+<h2>参加方法</h2><p>イベント情報やコミュニティからのお知らせは、公式Xアカウントで案内します。</p>
+<p><a class="button" href={site.x} target="_blank" rel="noopener noreferrer">公式Xをフォロー <span aria-hidden="true">↗</span></a></p>
 <h2>企画したい人へ</h2><p>Caféのテーマ提案、Lightning Talk、Forum登壇者の推薦、Web運営など、さまざまな形で参加できます。</p>
 </div></section>
 </BaseLayout>

@@ -6,4 +6,5 @@ export const site = {
     '研究者がAIの実際の使い方をラボや分野を越えて共有する、研究者主導のコミュニティです。',
   email: 'contact@example.org',
   github: 'https://github.com/research-ai-commons',
+  x: 'https://x.com/Research_AI_com',
 };
